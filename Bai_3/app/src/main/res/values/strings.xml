@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Login</string>
+    <string name="underline" ><u>Login</u></string>
+</resources>
