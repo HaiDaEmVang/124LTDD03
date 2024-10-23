@@ -8,11 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,46 +17,55 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
-
     EditText textInput;
     Button btn;
     ListView listView;
     SharedPreferences sharedPreferences;
     List<String> dsNguoiYeuCu;
+    ArrayAdapter<String> adapter; // Moved the adapter declaration here
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Initialize list and shared preferences
         dsNguoiYeuCu = new ArrayList<>();
         sharedPreferences = getSharedPreferences("dsNguoiYeuCu", MODE_PRIVATE);
-
         Set<String> mySet = sharedPreferences.getStringSet("ds", new HashSet<>());
         dsNguoiYeuCu = new ArrayList<>(mySet);
+
         anhxa();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, dsNguoiYeuCu);
+        // Set up the adapter and attach it to the ListView
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dsNguoiYeuCu);
         listView.setAdapter(adapter);
 
-
+        // Button click listener to add new item
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String value = String.valueOf(textInput.getText());
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                mySet.add(value);
-                editor.putStringSet("ds", mySet);
-                editor.apply();
+                String value = textInput.getText().toString().trim(); // Use trim() to avoid whitespace entries
+                if (!value.isEmpty()) { // Check for empty input
+                    dsNguoiYeuCu.add(value); // Update the list
+                    saveToSharedPreferences(); // Save the new value
+                    adapter.notifyDataSetChanged(); // Notify the adapter of the change
+                    textInput.setText(""); // Clear the input field
+                }
             }
         });
-
-
     }
 
-    public void anhxa(){
+    private void saveToSharedPreferences() {
+        Set<String> mySet = new HashSet<>(dsNguoiYeuCu); // Create a new HashSet from the list
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putStringSet("ds", mySet);
+        editor.apply();
+    }
+
+    public void anhxa() {
         textInput = findViewById(R.id.editText);
         btn = findViewById(R.id.btn);
         listView = findViewById(R.id.list);
-
     }
 }
