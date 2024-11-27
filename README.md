@@ -1,4 +1,5 @@
 1.Hình ảnh hiển thị cho Bài tập cá nhân
+
 2.Em quay màn hình bằng MSTeam mà bị ngắt khi nào e không hay nên phần sau ko quay được ạ.
 
 ![image](https://github.com/user-attachments/assets/33004c27-d129-4fdb-9346-68cf4c6fe308)
