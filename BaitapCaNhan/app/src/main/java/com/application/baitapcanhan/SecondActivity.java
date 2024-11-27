@@ -1,8 +1,10 @@
 package com.application.baitapcanhan;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.application.baitapcanhan.databinding.ActivitySecondBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,14 +27,15 @@ public class SecondActivity extends AppCompatActivity {
         binding = ActivitySecondBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        List<ItemViewHolder> data = new ArrayList<>();
-        data.add(new ItemViewHolder("Ga nuong", "Thom ngon dam vi", ""));
-        data.add(new ItemViewHolder("Ga nuong", "Thom ngon dam vi", ""));
-        data.add(new ItemViewHolder("Ga nuong", "Thom ngon dam vi", ""));
-        data.add(new ItemViewHolder("Ga nuong", "Thom ngon dam vi", ""));
 
-        binding.view.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        binding.view.setAdapter(new CustomAdapter(data,this));
+        binding.bottomNavigationView.setBackground(null);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_controll, new ProductFragment()).commit();
 
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            if(item.getItemId() == R.id.bottom_nav_home2)
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_controll, new ProfileFragment()).commit();
+            else getSupportFragmentManager().beginTransaction().replace(R.id.fragment_controll, new ProductFragment()).commit();
+            return true;
+        });
     }
 }

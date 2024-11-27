@@ -14,7 +14,7 @@
         android:title="" />
     <item
         android:id="@+id/bottom_nav_home2"
-        android:icon="@drawable/baseline_headset_mic_32"
+        android:icon="@drawable/baseline_account_box_32"
         android:title="Tài khoản" />
     <item
         android:id="@+id/bottom_nav_home3"

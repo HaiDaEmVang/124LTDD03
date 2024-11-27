@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_white_round10"
-    android:padding="12dp"
     android:layout_marginHorizontal="12dp"
     android:layout_marginTop="12dp"
     android:orientation="vertical">
@@ -24,7 +23,7 @@
                 android:layout_columnWeight="1"
                 android:scaleType="centerCrop"
                 android:layout_margin="5dp"
-                android:background="#DEDEDE"/>
+                android:background="@drawable/bg_gray_round10"/>
 
     </GridLayout>
 

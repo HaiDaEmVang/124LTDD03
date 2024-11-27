@@ -47,14 +47,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.itemViewHo
     }
 
 
-    public class itemViewHolder extends RecyclerView.ViewHolder {
+    public static class itemViewHolder extends RecyclerView.ViewHolder {
         ImageView pic;
         TextView ten, mota;
         public itemViewHolder(@NonNull View itemView) {
             super(itemView);
             pic = itemView.findViewById(R.id.image);
             ten = itemView.findViewById(R.id.title);
-            ten = itemView.findViewById(R.id.description);
+            mota = itemView.findViewById(R.id.description);
         }
     }
 }
