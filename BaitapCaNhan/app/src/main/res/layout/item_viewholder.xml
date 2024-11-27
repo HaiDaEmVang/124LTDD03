@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_white_round10"
+    android:padding="12dp"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginTop="12dp"
+    android:orientation="vertical">
+
+    <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:columnCount="2"
+            android:rowCount="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                app:shapeAppearanceOverlay="@style/RoundedCorners10dp"
+                android:id="@+id/image"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_columnWeight="1"
+                android:scaleType="centerCrop"
+                android:layout_margin="5dp"
+                android:background="#DEDEDE"/>
+
+    </GridLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bán giáo trình cũ các loại ngành CNTT"
+                android:textColor="#111827"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Có đủ giáo trình cho tất cả các môn thuộc ngành CNTT."
+                android:textColor="#374151" />
+        </LinearLayout>
+
+</LinearLayout>

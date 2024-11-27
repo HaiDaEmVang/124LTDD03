@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_nav_home"
+        android:icon="@drawable/baseline_home_32"
+        android:title="Trang chủ" />
+    <item
+        android:id="@+id/bottom_nav_sanpham"
+        android:icon="@drawable/baseline_headset_mic_32"
+        android:title="San phẩm" />
+    <item
+        android:id="@+id/bottom_nav_home1"
+        android:title="" />
+    <item
+        android:id="@+id/bottom_nav_home2"
+        android:icon="@drawable/baseline_headset_mic_32"
+        android:title="Tài khoản" />
+    <item
+        android:id="@+id/bottom_nav_home3"
+        android:icon="@drawable/baseline_headset_mic_32"
+        android:title="Trang chủ" />
+</menu>
